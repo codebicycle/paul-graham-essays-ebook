@@ -19,7 +19,7 @@ def get_page(page, download=False):
     if download:
         print('Downloading page {}'.format(page))
         response = requests.get('{base_url}/{page}'.format(base_url=BASE_URL, page=page))
-        content = response.text
+        content = response.content
         with io.open('download/{}'.format(page), 'w', encoding='utf-8') as f:
             f.write(content)
     else:
